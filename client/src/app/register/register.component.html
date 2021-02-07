@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-8">
+            <form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+                <div class="form-group">
+                <label for="username">Korisničko ime</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="username"
+                    [(ngModel)]="model.username"
+                    placeholder="Korisnik">
+                </div>
+                <div class="form-group">
+                <label for="password">Lozinka</label>
+                <input
+                    type="password"
+                    class="form-control"
+                    name="password" 
+                    [(ngModel)]="model.password"
+                    placeholder="Lozinka">
+                </div>
+                <div class="form-check text-center">
+                <input type="checkbox" class="form-check-input" id="checkbox">
+                <label class="form-check-label" for="checkbox">Slažem se s uvjetima korištenja</label>
+                </div>
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-outline-dark mr-3">Registriraj me</button>                    
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
