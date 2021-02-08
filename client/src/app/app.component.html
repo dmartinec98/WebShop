@@ -1,3 +1,11 @@
 <app-nav></app-nav>
 
 <router-outlet></router-outlet>
+
+<ul>
+    <li *ngFor="let user of users">{{user.id}}--{{user.userName}}</li>
+</ul>
+
+<ul>
+    <li *ngFor='let product of products'>{{product.id}} -- {{product.name}}-- {{product.description}}--{{product.price}}</li>
+</ul>

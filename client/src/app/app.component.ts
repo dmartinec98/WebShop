@@ -11,6 +11,7 @@ import { AccountService } from './_services/account.service';
 export class AppComponent implements OnInit{
   title = 'WebShop';
   users: any;
+  products: any;
 
   constructor(private http: HttpClient, private accountService: AccountService) {}
 
@@ -18,6 +19,7 @@ export class AppComponent implements OnInit{
   ngOnInit() {
     this.getUsers();
     this.setCurrentUser();
+    this.getProducts();
   }
 
   setCurrentUser() {
@@ -31,6 +33,14 @@ export class AppComponent implements OnInit{
     }, error => {
       console.log(error);
     })
+  }
+
+  getProducts() {
+    this.http.get('https://localhost:5001/api/products').subscribe(resposne => {
+      this.products = resposne;
+    }, error => {
+      console.log(error);
+    });
   }
 
 
