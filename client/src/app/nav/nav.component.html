@@ -7,7 +7,7 @@
   <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/home" (click)="isMenuCollapsed = true">Laptopi</a>
+        <a class="nav-link" routerLink="/" (click)="isMenuCollapsed = true">Početna stranica</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true">Računala</a>
@@ -16,7 +16,7 @@
         <a class="nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true">Komponente</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true">Periferija</a>
+        <a class="nav-link" routerLink="/shop" (click)="isMenuCollapsed = true">Shop</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink='/errors' routerLinkActive='active'>Errors</a>

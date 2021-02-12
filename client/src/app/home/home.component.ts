@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { Product } from '../_models/product';
 import { AccountService } from '../_services/account.service';
+import { ProductsService } from '../_services/products.service';
 
 @Component({
   selector: 'app-home',
@@ -9,20 +11,20 @@ import { AccountService } from '../_services/account.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  products: any;
+  products: Product[];
 
-  constructor(public accountService:AccountService, private http: HttpClient, private toastr: ToastrService ) { }
+  constructor(private productsService:ProductsService,private toastr: ToastrService ) { }
 
   ngOnInit(): void {
+    this.getProducts();
   }
 
   getProducts() {
-    this.http.get('https://localhost:5001/api/products').subscribe(resposne => {
-      this.products = resposne;
-    }, error => {
-      this.toastr.error(error.error);
-    });
+    this.productsService.getProducts().subscribe(response => {
+      this.products = response
+    })
   }
+  
 
 
 }

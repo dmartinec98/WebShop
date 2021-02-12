@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace API.Entities
 {
     public class Product
@@ -6,5 +8,6 @@ namespace API.Entities
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
+        public ICollection<Photo> Photos { get; set; }
     }
 }

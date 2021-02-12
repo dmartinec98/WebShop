@@ -17,6 +17,9 @@ import { TestErrorsComponent } from './errors/test-errors/test-errors.component'
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
+import { ProductCardComponent } from './products/product-card/product-card.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
+import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,11 @@ import { ErrorInterceptor } from './_interceptors/error.interceptor';
     OrdersComponent,
     TestErrorsComponent,
     ServerErrorComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ProductListComponent,
+    ProductCardComponent,
+    ProductListComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserAnimationsModule,
