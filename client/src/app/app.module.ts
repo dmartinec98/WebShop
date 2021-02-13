@@ -20,6 +20,7 @@ import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { ProductCardComponent } from './products/product-card/product-card.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
     HttpClientModule,
     FormsModule,
     NgbModule,
+    NgxGalleryModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
     })
