@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using API.DTOs;
 using API.Entities;
+using Microsoft.AspNetCore.Http;
 
 namespace API.Interfaces
 {
@@ -13,6 +14,8 @@ namespace API.Interfaces
         Task<Product> GetProductByIdAsync(int id);
         Task<IEnumerable<ProductDto>> GetProductsDtoAsync();
         Task<ProductDto> GetProductAsync(int id);
+        void AddProduct(Product product);        
+        Task<Product> GetProductByNameAsync(string name);
 
     }
 }

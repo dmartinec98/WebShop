@@ -1,6 +1,6 @@
-<div class="container">
-    <div class="row">
-        <div *ngFor="let product of Products" class="col-xs-12 col-sm-6 col-md-4">
+<div class="flex-container">
+    <div class="row">        
+        <div *ngFor="let product of Products" class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
             <app-product-card [product]="product"></app-product-card>
         </div>
     </div>

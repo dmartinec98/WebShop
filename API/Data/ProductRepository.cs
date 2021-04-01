@@ -6,6 +6,7 @@ using API.Entities;
 using API.Interfaces;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Data
@@ -20,6 +21,13 @@ namespace API.Data
             _context = context;
         }
 
+
+        public void AddProduct(Product product)
+        {
+            _context.Products.Add(product);
+        }
+
+
         public async Task<ProductDto> GetProductAsync(int id)
         {
             return await _context.Products
@@ -33,6 +41,14 @@ namespace API.Data
             return await _context.Products
                 .Include(p => p.Photos)
                 .SingleOrDefaultAsync(x => x.Id == id);
+        }
+
+        public async Task<Product> GetProductByNameAsync(string name)
+        {
+            return await _context.Products
+                .Include(p => p.Photos)
+                .SingleOrDefaultAsync(x=>x.Name == name);
+
         }
 
         public async Task<IEnumerable<Product>> GetProductsAsync()

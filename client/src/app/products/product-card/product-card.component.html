@@ -1,13 +1,15 @@
-<div class="card">    
-<div class="view overlay">
-<img class="card-img-top" src="{{product.photoUrl}}" alt="Card image cap" routerLink="/product/{{product.id}}">
-<a href="#!">
-<div class="mask rgba-white-slight"></div>
+<div class="card h-100 shadow-sm">
+<div class="image position-relative;" style="cursor: pointer;">
+<img src="{{ product.photoUrl }}" alt="{{ product.name }}" class="img-fluid bg-light"/>
+<div class="d-flex align-items-center justify-content-center hover-overlay">
+<button type="button" class="btn btn-primary fa fa-shopping-cart mr-2"></button>
+<button routerLink="/product/{{product.id}}" type="button" class="btn btn-primary">View</button>
+</div>
+</div>
+<div class="card-body d-flex flex-column">
+<a>
+<h6 class="text-uppercase">{{ product.name }}</h6>
 </a>
-</div>    
-<div class="card-body">
-<h4 class="card-title">{{product.name}}</h4>
-<p class="card-text">{{product.description}}</p>
-<button type="button" class="btn btn-light-blue btn-md">Read more</button>    
-</div>    
+<span class="mb-2" style="font-size: 1.5em;">{{ product.price}} KN</span>
+</div>
 </div>

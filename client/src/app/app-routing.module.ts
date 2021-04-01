@@ -5,6 +5,7 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
 import { HomeComponent } from './home/home.component';
 import { OrdersComponent } from './orders/orders.component';
+import { ProductAddComponent } from './products/product-add/product-add.component';
 import { ProductCardComponent } from './products/product-card/product-card.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'errors', component: TestErrorsComponent},
   {path: 'not-found', component: NotFoundComponent},
   {path: 'server-error', component: ServerErrorComponent},
+  {path: 'addnew', component: ProductAddComponent},
   {path:'**',component: NotFoundComponent, pathMatch: 'full'}
 ];
 
