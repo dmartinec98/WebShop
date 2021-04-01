@@ -19,6 +19,9 @@
         <a class="nav-link" routerLink="/shop" (click)="isMenuCollapsed = true">Shop</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" routerLink="/addnew" (click)="isMenuCollapsed = true">Dodaj proizvod</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" routerLink='/errors' routerLinkActive='active'>Errors</a>
       </li>
       <ng-container *ngIf="accountService.currentUser$ | async">

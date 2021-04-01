@@ -21,6 +21,7 @@ import { ProductCardComponent } from './products/product-card/product-card.compo
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { ProductAddComponent } from './products/product-add/product-add.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
     ProductListComponent,
     ProductCardComponent,
     ProductListComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserAnimationsModule,
