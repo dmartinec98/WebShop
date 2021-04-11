@@ -12,6 +12,7 @@ import { ProductsService } from '../_services/products.service';
 })
 export class HomeComponent implements OnInit {
   products: Product[];
+  product: Product;
 
   constructor(private productsService:ProductsService,private toastr: ToastrService ) { }
 
@@ -24,7 +25,6 @@ export class HomeComponent implements OnInit {
       this.products = response
     })
   }
-  
 
 
 }

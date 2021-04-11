@@ -27,6 +27,11 @@ namespace API.Data
             _context.Products.Add(product);
         }
 
+        public int GetLastProduct()
+        {
+            var item = _context.Products.OrderBy(id => id.Id).LastOrDefault();
+            return item.Id;
+        }
 
         public async Task<ProductDto> GetProductAsync(int id)
         {
@@ -67,6 +72,7 @@ namespace API.Data
         {
             return await _context.SaveChangesAsync() > 0;
         }
+
 
         public void Update(Product product)
         {

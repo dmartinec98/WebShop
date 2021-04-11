@@ -25,4 +25,13 @@ export class ProductsService {
     return this.http.post(this.baseUrl + 'products/addproduct', model);
   }
 
+  setMainPhoto(productId: number, photoId: number) {
+    return this.http.put(this.baseUrl + 'products/'+ productId + '/set-main-photo/' + photoId, {});
+  }
+
+  deletePhoto(productId: number, photoId: number) {
+    return this.http.delete(this.baseUrl + 'products/'+ productId + '/delete-photo/'+ photoId);
+  }
+
+
 }

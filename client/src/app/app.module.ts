@@ -22,6 +22,8 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { ProductAddComponent } from './products/product-add/product-add.component';
+import { PhotoEditorComponent } from './products/photo-editor/photo-editor.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { ProductAddComponent } from './products/product-add/product-add.componen
     ProductCardComponent,
     ProductListComponent,
     ProductDetailComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    PhotoEditorComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -47,6 +50,7 @@ import { ProductAddComponent } from './products/product-add/product-add.componen
     FormsModule,
     NgbModule,
     NgxGalleryModule,
+    FileUploadModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
     })
