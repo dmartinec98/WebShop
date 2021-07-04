@@ -1,0 +1,7 @@
+<ul *ngIf="chart?.length>0">
+    <li *ngFor="let product of chart">{{product.id}}-{{product.name}}-{{product.description}}-{{product.price}}</li>
+</ul>
+
+<p *ngIf="chart?.length<1">Nemate proizvoda na listi želja</p>
+
+<button type="button" class="btn btn-primary">Kupi</button>

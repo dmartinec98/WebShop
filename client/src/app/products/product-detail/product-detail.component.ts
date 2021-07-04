@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
+import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/_models/product';
 import { ProductsService } from 'src/app/_services/products.service';
 
@@ -14,7 +15,7 @@ export class ProductDetailComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
-  constructor(private productService: ProductsService, private route: ActivatedRoute) { }
+  constructor(private productService: ProductsService, private route: ActivatedRoute, private toast: ToastrService) { }
 
   ngOnInit(): void {
     this.loadProduct();
@@ -50,4 +51,12 @@ export class ProductDetailComponent implements OnInit {
     })
   }
 
+  addtocart() {
+    this.loadProduct();
+    var chart = JSON.parse(sessionStorage.getItem("cart"));
+    if(chart == null) chart = [];
+    chart.push(this.product);
+    sessionStorage.setItem('cart', JSON.stringify(chart));
+    this.toast.success("Proizvod dodan na listu želja");
+  }
 }

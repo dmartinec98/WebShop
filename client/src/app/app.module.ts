@@ -24,6 +24,7 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { ProductAddComponent } from './products/product-add/product-add.component';
 import { PhotoEditorComponent } from './products/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import { BasketComponent } from './basket/basket.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FileUploadModule } from 'ng2-file-upload';
     ProductListComponent,
     ProductDetailComponent,
     ProductAddComponent,
-    PhotoEditorComponent
+    PhotoEditorComponent,
+    BasketComponent
   ],
   imports: [
     BrowserAnimationsModule,

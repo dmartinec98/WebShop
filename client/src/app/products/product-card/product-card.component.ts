@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Toast, ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/_models/product';
 
 @Component({
@@ -9,9 +10,17 @@ import { Product } from 'src/app/_models/product';
 export class ProductCardComponent implements OnInit {
   @Input() product: Product;
 
-  constructor() { }
+  constructor(private toast: ToastrService) { }
 
   ngOnInit(): void {
+  }
+
+  addtocart() {
+    var chart = JSON.parse(sessionStorage.getItem("cart"));
+    if(chart == null) chart = [];
+    chart.push(this.product);
+    sessionStorage.setItem('cart', JSON.stringify(chart));
+    this.toast.success("Proizvod dodan na listu želja");
   }
 
 }
