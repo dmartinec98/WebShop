@@ -1,7 +1,7 @@
-<ul *ngIf="chart?.length>0">
-    <li *ngFor="let product of chart">{{product.id}}-{{product.name}}-{{product.description}}-{{product.price}}</li>
+<ul *ngIf="cart?.length>0">
+    <li *ngFor="let product of cart">{{product.id}}-{{product.name}}-{{product.description}}-{{product.price}} <button  type="button" class="btn btn-primary">Izbriši</button></li>
 </ul>
 
-<p *ngIf="chart?.length<1">Nemate proizvoda na listi želja</p>
+<p *ngIf="cart?.length<1">Nemate proizvoda na listi želja</p>
 
 <button type="button" class="btn btn-primary">Kupi</button>

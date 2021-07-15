@@ -1,8 +1,50 @@
 <div class="flex-container">
     <div class="row">
-            <div *ngFor="let product of products" class="col-xs-12 col-sm-6 col-md-4 col-lg-2 mb-4">
-                <app-product-card [product]="product"></app-product-card>
-            </div>
+        <div class="form-inline" *ngIf="products">
+            <form #searchForm="ngForm" (ngSubmit)="nadji()" autocomplete="off">
+                <input [(ngModel)]="search.search"  class="form-control mr-2" name="search" style="width: 300px" placeholder="Search" type="text">
+                <button (ngSubmit)="nadji()" class="btn btn-outline-primary my-2">Search</button>
+                <button (click)="resetParams()" class="btn btn-outline-success ml-2 my-2">Reset</button>
+            </form>
+        </div>
+    </div> 
+    <div class="row">
+    <div *ngFor="let product of products" class="col-xs-12 col-sm-6 col-md-4 col-lg-2 mb-4">
+        <app-product-card [product]="product"></app-product-card>
+    </div>
+    <div class="col">
+        <div class="btn-group float-right">
+            <button
+                type="button"
+                class="btn btn-primary" 
+                name='sort'
+                (click)="priceAsc()">
+                priceAsc</button>
+            
+            <button
+                type="button"
+                class="btn btn-primary" 
+                name='sort'
+                (click)="priceDesc()">priceDesc</button>
+            
+            <button
+                type="button"
+                class="btn btn-primary" 
+                name='sort'
+                (click)="nameAsc()">nameAsc</button>
+            <button
+                type="button"
+                class="btn btn-primary" 
+                name='sort'
+                (click)="nameDesc()">nameDesc</button>
+            
+            <button
+                type="button"
+                class="btn btn-primary" 
+                name='sort'
+                (click)="resetParams()">resetPrice</button>
+        </div>
+    </div> 
     </div>
     <div class="d-fex justify-content-center" *ngIf="pagination">
         <ngb-pagination    

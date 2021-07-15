@@ -53,10 +53,10 @@ export class ProductDetailComponent implements OnInit {
 
   addtocart() {
     this.loadProduct();
-    var chart = JSON.parse(sessionStorage.getItem("cart"));
-    if(chart == null) chart = [];
-    chart.push(this.product);
-    sessionStorage.setItem('cart', JSON.stringify(chart));
+    var cart = JSON.parse(sessionStorage.getItem("cart"));
+    if(cart == null) cart = [];
+    cart.push(this.product);
+    sessionStorage.setItem('cart', JSON.stringify(cart));
     this.toast.success("Proizvod dodan na listu želja");
   }
 }

@@ -8,15 +8,15 @@ import { AccountService } from '../_services/account.service';
   styleUrls: ['./basket.component.css']
 })
 export class BasketComponent implements OnInit {
-  chart = [];
+  cart = [];
 
   constructor(public accountService: AccountService) { }
 
   ngOnInit(): void {
     this.showItems();
   }
-
   showItems() {
-    this.chart = JSON.parse(sessionStorage.getItem("cart")); 
+    this.cart = JSON.parse(sessionStorage.getItem("cart")); 
   }
+  
 }

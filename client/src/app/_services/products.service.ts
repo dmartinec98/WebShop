@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { PaginatedResult } from '../_models/pagination';
 import { Product } from '../_models/product';
+import { ProductParams } from '../_models/productParams';
 
 @Injectable({
   providedIn: 'root'
@@ -12,16 +13,22 @@ import { Product } from '../_models/product';
 export class ProductsService {
   baseUrl = environment.apiUrl;
   products: Product[] = [];
+  productParams: ProductParams;
   paginatedResult: PaginatedResult<Product[]> = new PaginatedResult<Product[]>();
 
   constructor(private http: HttpClient) { }
 
-  getProducts(page?: number, itemsPerPage?: number) {
+  getProducts(page?: number, itemsPerPage?: number, sort?:string, search?:string) {
     let params = new HttpParams();
 
     if (page !== null && itemsPerPage !== null) {
       params = params.append('pageNumber', page.toString());
       params = params.append('pageSize', itemsPerPage.toString());
+      params = params.append('sort', sort);
+    }
+    if(search)
+    {
+      params = params.append('search',search);
     }
 
     return this.http.get<Product[]>(this.baseUrl + 'products', {observe: 'response', params}).pipe(

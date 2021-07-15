@@ -64,11 +64,27 @@ namespace API.Data
 
         public async Task<PagedList<ProductDto>> GetProductsDtoAsync(ProductParams productParams)
         {
-            var query = _context.Products
-                .ProjectTo<ProductDto>(_mapper.ConfigurationProvider)
-                .AsNoTracking();
+            var query = _context.Products.AsQueryable();
+
+            if (!string.IsNullOrEmpty(productParams.Search))
+            {
+                query = query.Where(s => s.Name.ToLower().Contains(productParams.Search));
+            }
+
+            query = productParams.Sort switch
+            {
+                "priceAsc" => query.OrderBy(p => ((double)p.Price)),
+                "priceDesc" => query.OrderByDescending(p => ((double)p.Price)),
+                "nameAsc" => query.OrderBy( p => p.Name.ToLower()),
+                "nameDesc" => query.OrderByDescending( p => p.Name.ToLower()),
+                _ => query.OrderBy(p => p.Id)
+            };
+
+
             
-            return await PagedList<ProductDto>.CreateAsync(query, productParams.PageNumber, productParams.PageSize);
+            return await PagedList<ProductDto>.CreateAsync(query.ProjectTo<ProductDto>(_mapper
+                .ConfigurationProvider).AsNoTracking(),
+                    productParams.PageNumber, productParams.PageSize);
         }
 
         public async Task<bool> SaveAllAsync()

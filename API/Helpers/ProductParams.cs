@@ -11,5 +11,16 @@ namespace API.Helpers
             get => _pageSize;
             set => _pageSize = (value> MaxPageSize) ? MaxPageSize : value;
         }
+
+        public string Sort { get; set; }
+
+        public string _search { get; set; }
+
+        public string Search {
+            get => _search;
+            set => _search = value.ToLower();
+        }
+
+
     }
 }

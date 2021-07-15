@@ -16,6 +16,8 @@ export class ProductListComponent implements OnInit {
   productParams: ProductParams;
   pageNumber = 1;
   pageSize = 5;
+  sort = "";
+  search: any = {};
 
   constructor(private productsService: ProductsService) { }
 
@@ -24,7 +26,7 @@ export class ProductListComponent implements OnInit {
   }
 
   loadProducts() {
-    this.productsService.getProducts(this.pageNumber,this.pageSize).subscribe(response =>{
+    this.productsService.getProducts(this.pageNumber,this.pageSize, this.sort).subscribe(response =>{
       console.log(response.pagination);
       this.products = response.result;
       this.pagination = response.pagination;
@@ -39,4 +41,37 @@ export class ProductListComponent implements OnInit {
     }
   }
 
+  priceAsc() {
+    this.sort = "priceAsc";
+    this.loadProducts();
+  }
+
+  priceDesc() {
+    this.sort = "priceDesc";
+    this.loadProducts();
+  }
+
+  nameAsc() {
+    this.sort = "nameAsc";
+    this.loadProducts();
+  }
+
+  nameDesc() {
+    this.sort = "nameDesc";
+    this.loadProducts();
+  }
+
+  resetParams() {
+    this.sort = "";
+    this.search.search = "";
+    this.nadji();
+  }
+
+  nadji() {
+    console.log(this.search.search);
+    this.productsService.getProducts(this.pageNumber,this.pageSize, this.sort,this.search.search).subscribe(response =>{
+      this.products = response.result;
+      this.pagination = response.pagination;
+    })
+  }
 }
