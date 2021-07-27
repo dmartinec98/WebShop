@@ -9,6 +9,7 @@ namespace API.Helpers
     {
         public AutoMapperProfiles()
         {
+            CreateMap<RegisterDto, AppUser> ();
             CreateMap<Product, ProductDto> ()
                 .ForMember(dest => dest.PhotoUrl, opts => opts.MapFrom(src =>
                     src.Photos.FirstOrDefault(x => x.IsMain).Url));

@@ -8,6 +8,6 @@
         <p>{{product.description}}</p>
         <h1>{{product.price}} kn</h1>
         <button (click)="addtocart()"  class="btn btn-primary">Dodaj u košaricu</button>
-        <button class="btn btn-danger" routerLink="/product/{{product.id}}/editphoto">Uredi</button>
+        <button class="btn btn-danger" *appHasRole='["Admin","Moderator"]' routerLink="/product/{{product.id}}/editphoto">Uredi</button>
     </div>
 </div>

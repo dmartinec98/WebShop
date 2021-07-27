@@ -12,6 +12,7 @@ import { ProductCardComponent } from './products/product-card/product-card.compo
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { RegisterComponent } from './register/register.component';
+import { AdminGuard } from './_guards/admin.guard';
 import { AuthGuard } from './_guards/auth.guard';
 
 const routes: Routes = [
@@ -22,11 +23,11 @@ const routes: Routes = [
   {path: 'product', component: ProductCardComponent},
   {path: 'product/:id',component: ProductDetailComponent},
   {path: 'shop' ,component: ProductListComponent},  
-  {path: 'errors', component: TestErrorsComponent},
+  {path: 'errors', component: TestErrorsComponent, canActivate: [AdminGuard]},
   {path: 'not-found', component: NotFoundComponent},
   {path: 'server-error', component: ServerErrorComponent},
-  {path: 'addnew', component: ProductAddComponent},
-  {path: 'product/:id/editphoto', component: PhotoEditorComponent},
+  {path: 'addnew', component: ProductAddComponent, canActivate: [AdminGuard]},
+  {path: 'product/:id/editphoto', component: PhotoEditorComponent, canActivate: [AdminGuard]},
   {path: 'basket', component: BasketComponent},
   {path:'**',component: NotFoundComponent, pathMatch: 'full'}
 ];

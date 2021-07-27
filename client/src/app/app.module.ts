@@ -25,7 +25,7 @@ import { ProductAddComponent } from './products/product-add/product-add.componen
 import { PhotoEditorComponent } from './products/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { BasketComponent } from './basket/basket.component';
-
+import { HasRoleDirective } from './_directives/has-role.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +42,8 @@ import { BasketComponent } from './basket/basket.component';
     ProductDetailComponent,
     ProductAddComponent,
     PhotoEditorComponent,
-    BasketComponent
+    BasketComponent,
+    HasRoleDirective
   ],
   imports: [
     BrowserAnimationsModule,

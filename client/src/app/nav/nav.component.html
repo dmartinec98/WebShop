@@ -9,16 +9,16 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/shop" (click)="isMenuCollapsed = true">Shop</a>
       </li>
+    <ng-container *ngIf="accountService.currentUser$ | async">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/addnew" (click)="isMenuCollapsed = true">Dodaj proizvod</a>
+        <a *appHasRole='["Admin","Moderator"]' class="nav-link" routerLink="/addnew" (click)="isMenuCollapsed = true">Dodaj proizvod</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink='/errors' routerLinkActive='active'>Errors</a>
+        <a *appHasRole='["Admin","Moderator"]' class="nav-link" routerLink='/errors' routerLinkActive='active'>Errors</a>
+      </li>      
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/orders" routerLinkActive="active">Vaše narudžbe</a>
       </li>
-      <ng-container *ngIf="accountService.currentUser$ | async">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/orders" routerLinkActive="active">Vaše narudžbe</a>
-        </li>
       </ng-container>
     </ul>
     <ul class="navbar-nav ml-auto">
