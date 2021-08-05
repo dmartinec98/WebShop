@@ -33,7 +33,8 @@ namespace API
             services.AddApplicationServices(_config);
             services.AddControllers();
             services.AddCors();
-            services.AddIdentityService(_config);            
+            services.AddIdentityService(_config);
+            services.AddControllers().AddNewtonsoftJson();            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });

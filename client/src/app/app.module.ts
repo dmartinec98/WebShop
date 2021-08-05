@@ -12,7 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ToastrModule } from 'ngx-toastr';
-import { OrdersComponent } from './orders/orders.component';
+import { OrdersComponent } from './orders/allorders/orders.component';
 import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
@@ -26,6 +26,7 @@ import { PhotoEditorComponent } from './products/photo-editor/photo-editor.compo
 import { FileUploadModule } from 'ng2-file-upload';
 import { BasketComponent } from './basket/basket.component';
 import { HasRoleDirective } from './_directives/has-role.directive';
+import { IndividualordersComponent } from './orders/individualorders/individualorders.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import { HasRoleDirective } from './_directives/has-role.directive';
     ProductAddComponent,
     PhotoEditorComponent,
     BasketComponent,
-    HasRoleDirective
+    HasRoleDirective,
+    IndividualordersComponent
   ],
   imports: [
     BrowserAnimationsModule,

@@ -11,6 +11,7 @@ export class AccountService {
   baseUrl = environment.apiUrl; 
   private curretUserSource = new ReplaySubject<User>(1);
   currentUser$ = this.curretUserSource.asObservable();
+  user: User;
 
   constructor(private http: HttpClient) {}
 
@@ -41,6 +42,10 @@ export class AccountService {
     Array.isArray(roles) ? user.roles = roles : user.roles.push(roles);
     localStorage.setItem('user',JSON.stringify(user));
     this.curretUserSource.next(user);
+  }
+
+  getUserId() {
+    return this.getDecodedToken(JSON.parse(localStorage.getItem("user")).token).nameid;    
   }
 
   logout() {

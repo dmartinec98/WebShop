@@ -1,7 +1,15 @@
 <ul *ngIf="cart?.length>0">
-    <li *ngFor="let product of cart">{{product.id}}-{{product.name}}-{{product.description}}-{{product.price}} <button  type="button" class="btn btn-primary">Izbriši</button></li>
+    <li *ngFor="let product of cart,let i = index" class="mb-3">               
+        {{i}}-----{{product.id}}-{{product.name}}-{{product.description}}-{{product.price}}
+        <ng-container *ngIf="(accountService.currentUser$ | async)">
+            <button (click)="buyItems(i)" type="button" class="btn btn-primary mr-3">Kupi</button>   
+        </ng-container>
+        <ng-container *ngIf="(accountService.currentUser$ | async) === null">
+            <button (click)="notLoggedIn()"  type="button" class="btn btn-primary mr-3">Kupi</button>
+        </ng-container>
+        <button (click)="removeItem(i)" type="button" class="btn btn-primary">Izbriši</button>
+    </li>
 </ul>
 
 <p *ngIf="cart?.length<1">Nemate proizvoda na listi želja</p>
 
-<button type="button" class="btn btn-primary">Kupi</button>

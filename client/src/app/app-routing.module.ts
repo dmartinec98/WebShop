@@ -5,7 +5,8 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
 import { HomeComponent } from './home/home.component';
-import { OrdersComponent } from './orders/orders.component';
+import { OrdersComponent } from './orders/allorders/orders.component';
+import { IndividualordersComponent } from './orders/individualorders/individualorders.component';
 import { PhotoEditorComponent } from './products/photo-editor/photo-editor.component';
 import { ProductAddComponent } from './products/product-add/product-add.component';
 import { ProductCardComponent } from './products/product-card/product-card.component';
@@ -14,12 +15,14 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 import { RegisterComponent } from './register/register.component';
 import { AdminGuard } from './_guards/admin.guard';
 import { AuthGuard } from './_guards/auth.guard';
+import { MemberGuard } from './_guards/member.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home',component: HomeComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'orders', component: OrdersComponent, canActivate: [AuthGuard]},  
+  {path: 'orders', component: OrdersComponent, canActivate: [AdminGuard]},
+  {path: 'userorders', component: IndividualordersComponent, canActivate: [MemberGuard]},
   {path: 'product', component: ProductCardComponent},
   {path: 'product/:id',component: ProductDetailComponent},
   {path: 'shop' ,component: ProductListComponent},  
