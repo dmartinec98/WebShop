@@ -29,7 +29,8 @@ namespace API.Controllers
             {
                 CustomerId = orderDto.CustomerId,
                 ProductName = orderDto.ProductName,
-                ProductPrice = orderDto.ProductPrice
+                ProductPrice = orderDto.ProductPrice,
+                PictureUrl = orderDto.PictureUrl
             };
 
 

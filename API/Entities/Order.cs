@@ -6,6 +6,7 @@ namespace API.Entities
         public int CustomerId { get; set; }
         public string ProductName { get; set; }
         public decimal ProductPrice { get; set; }
+        public string PictureUrl { get; set; }
 
     }
 }

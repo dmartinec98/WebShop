@@ -1,3 +1,38 @@
-<ul>
-    <li *ngFor="let order of orders">{{order.id}}-{{order.customerId}}-{{order.productName}}-{{order.productPrice}}</li>
-</ul>
+<div class="row justify-content-center">
+    <div class="col-auto">
+    <div class="table table-responsive" *ngIf="orders?.length>0">
+        <tr>
+        <th scope="col">
+            <div class="p-2 px-3 text-uppercase">Proizvod</div>
+        </th>
+        <th scope="col">
+            <div class="p-2 px-3 text-uppercase">Cijena</div>
+        </th>
+        <th scope="col">
+            <div class="p-2 px-3 text-uppercase">ID narudžbe</div>
+        </th>
+        <th scope="col">
+            <div class="p-2 px-3 text-uppercase">ID korisnika</div>
+        </th>
+        </tr>
+        <tbody>
+            <tr *ngFor="let item of orders; let i = index">
+                <th scope="row">
+                    <div class="p-2">
+                        <img src="{{item.pictureUrl}}" alt="{{item.productName}}" class="img-fluid" style="max-height:50px;">
+                        <div class="ml-3 d-inline-block align-middle">
+                            <h5 class="mb-0">
+                                <a routerLink="/product/{{item.id}}" class="text-dark">{{item.productName}}</a>
+                            </h5>                           
+                        </div>
+                    </div>
+                </th>
+                <td class="align-middle"><strong>{{item.productPrice}} kn</strong></td>
+                <td class="align-middle text-center"><strong>{{item.id}}</strong></td>
+                <td class="align-middle text-center"><strong>{{item.customerId}}</strong></td>
+            </tr>
+        </tbody>
+    </div>
+    <p *ngIf="orders?.length<1">Nemate narudžbi</p>
+</div>
+</div>

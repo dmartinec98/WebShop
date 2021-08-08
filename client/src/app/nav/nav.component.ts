@@ -24,12 +24,14 @@ export class NavComponent implements OnInit {
   login() {
     this.accountService.login(this.model).subscribe(response => {
       this.router.navigateByUrl('');
-    })
+      localStorage.setItem('userid', JSON.stringify(this.accountService.getUserId()));
+    })    
   }
 
   logout() {
     this.accountService.logout();
     this.router.navigateByUrl('/shop');
+    localStorage.removeItem('userid');
   }
 
 }

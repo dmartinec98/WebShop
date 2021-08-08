@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Order } from '../_models/order';
 import { Product } from '../_models/product';
 import { AccountService } from '../_services/account.service';
@@ -23,25 +23,22 @@ export class BasketComponent implements OnInit {
 
   ngOnInit(): void {
     this.showItems();
-    this.getUserId();
   }
   showItems() {
     this.cart = JSON.parse(sessionStorage.getItem("cart"));
   }
 
   buyItems(i:any) {
-    let myObj: Order;
-    myObj = {};
-    myObj.customerId = this.userId;
-    myObj.productName = this.cart[i].name;
-    myObj.productPrice = this.cart[i].price;
-    this.ordersService.addOrder(myObj).subscribe(()=>{});
+    this.userId = JSON.parse(localStorage.getItem('userid'));
+    console.log(this.userId);
+    this.order = {};
+    this.order.customerId = this.userId;
+    this.order.productName = this.cart[i].name;
+    this.order.productPrice = this.cart[i].price;
+    this.order.pictureUrl = this.cart[i].photoUrl;
+    this.ordersService.addOrder(this.order).subscribe(()=>{});
     this.removeItem(i);
     this.toast.success("Proizvod kupljen!");
-  }
-
-  getUserId() {
-    this.userId =this.accountService.getUserId();    
   }
 
   removeItem(index) {
@@ -63,5 +60,7 @@ export class BasketComponent implements OnInit {
   konzola(){
     console.log(this.cart);
   }
+
+
 
 }
