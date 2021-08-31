@@ -7,7 +7,24 @@
         <h3>{{product.name}}</h3>
         <p>{{product.description}}</p>
         <h1>{{product.price}} kn</h1>
+        <ngb-rating [readonly]="readonly" [rate]="prosjek"></ngb-rating>
+        <ng-container *ngIf="!suma">
+            <p>Vaša ocijena: {{currentRate}} </p><ngb-rating [(rate)]="currentRate"></ngb-rating>
+            <button class="btn btn-primary" (click)="ocjeniProizvod()">Rate</button>
+        </ng-container>        
+        <hr>
         <button (click)="addtocart()"  class="btn btn-primary">Dodaj u košaricu</button>
         <button class="btn btn-danger" *appHasRole='["Admin","Moderator"]' routerLink="/product/{{product.id}}/editphoto">Uredi</button>
+    </div>
+    <div>
+        <ul>
+            <li *ngFor="let komentar of komentari">{{komentar.username}}-{{komentar.komentar}}</li>
+        </ul>
+    </div>   
+    <div *ngIf="accountService.currentUser$ | async">
+        <input type="text" class="form-control" [(ngModel)]="model.komentar" />
+        <div class="text-center mt-3">
+            <button (click)="addComment()" class="btn btn-outline-dark mr-3">Komentiraj</button>                    
+        </div>
     </div>
 </div>

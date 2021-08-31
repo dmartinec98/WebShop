@@ -4,6 +4,7 @@ using API.DTOs;
 using API.Entities;
 using API.Interfaces;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -41,7 +42,7 @@ namespace API.Controllers
 
             return BadRequest("Failed to add product");
         }
-
+        
         [HttpGet("getorders")]
         public async Task<ActionResult<OrderDto>> GetOrders()
         {            

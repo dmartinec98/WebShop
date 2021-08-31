@@ -14,7 +14,9 @@ namespace API.Helpers
                 .ForMember(dest => dest.PhotoUrl, opts => opts.MapFrom(src =>
                     src.Photos.FirstOrDefault(x => x.IsMain).Url));
             CreateMap<Photo, PhotoDto> ();
+            CreateMap<Comment, CommentDto> ();
             CreateMap<Order, OrderDto> ();
+            CreateMap<Rating, RatingDto> ();
         }
     }
 }

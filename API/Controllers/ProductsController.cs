@@ -8,6 +8,7 @@ using API.Extensions;
 using API.Helpers;
 using API.Interfaces;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -42,7 +43,7 @@ namespace API.Controllers
         {
             return await _productRepository.GetProductAsync(id);
         }
-
+        
         [HttpPost("addproduct")]
         public async Task<ActionResult<ProductDto>> AddProduct(ProductDto productDto)
         {   
@@ -63,6 +64,7 @@ namespace API.Controllers
             return BadRequest("Failed to add product");
         }
 
+        
         [HttpPost("{id}/addphoto")]
         public async Task<ActionResult<PhotoDto>> AddPhoto (int id,IFormFile file)
         {
@@ -92,6 +94,7 @@ namespace API.Controllers
             return BadRequest("Problem adding photo");
         }
 
+        
         [HttpPut("{productId}/set-main-photo/{photoId}")]
         public async Task<ActionResult> SetMainPhoto(int productId,int photoId)
         {
@@ -110,6 +113,7 @@ namespace API.Controllers
             return BadRequest("Failed to set main photo");
         }
 
+        
         [HttpDelete("{productId}/delete-photo/{photoId}")]
         public async Task<ActionResult> DeletePhoto(int productId,int photoId)
         {

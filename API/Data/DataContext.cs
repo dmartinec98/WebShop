@@ -17,6 +17,10 @@ namespace API.Data
 
         public DbSet<Order> Orders { get; set; }
 
+        public DbSet<Comment> Comments { get; set; }
+
+        public DbSet<Rating> Ratings { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
